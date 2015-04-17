@@ -7,6 +7,7 @@ The purpose of this project is to look for ways to make these disparate database
 - Creating a Linked Data interface to each database, so each presents a common view to the public and applications.
 - Searching across databases and collating the results, so that a single interface could be used to search for a person and see what each database says about him or her.
 - Developing or augmenting the ontologies/schemas/vocabularies necessary for these databases to interoperate.
+- Building a hosted repository where smaller databases (e.g. excel spreadsheets) can be shared with the community as databases, not separate files.
 
 The datasets we are working with are of two types:
 - Biographical Databases: collections of a variety of information about each person (name, birth, death, etc.), much like the myriad genealogical databases out there, preferably supported by quality research and primary sources.
