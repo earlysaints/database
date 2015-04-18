@@ -212,3 +212,7 @@ I convert `MultiMap<K,V>` into `Map<K,Set<V>>`, as follows:
   }
 ]
 ```
+
+## Context
+
+To do: create a GEDCOM-appropriate `@context` object.
