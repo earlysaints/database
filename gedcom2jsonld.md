@@ -106,7 +106,7 @@ Some things we might want to normalize at some point:
 * Do we standardize dates, names, places, etc., in some way?
 * Do we allow free-form fields but have very descriptive `@type`s like `daterange#gregorian#start(YYYY)-end(YYYY-MM-DD)`?
 
-I perform no standardization in the examples in this document.
+I perform no normalization in the examples in this document.
 
 ## Multimaps
 
