@@ -86,6 +86,14 @@ I'll use the payload field approach in my examples below.
 
 *I have found it to be a clean way of handling a lot of complex situations. However, doing this in JSON-LD would be very unwieldy (every statement is an independent object), and would break the nested object model that makes JSON-LD nice to use.*
 
+> (Luther): I agree on all points, Brandon:
+> this case will arise repeatedly so we'll need a standard solution,
+> and solutions for other data models are not very JSON-LD-like.
+
+One reason JSON-LD has *not* chosen to implement value-and-nested syntax
+is that it makes the common JSON access syntax ambiguous; does `person.NAME` (or `person["NAME"]`) yield the string (`"Stephen Joseph /Abbott/"`) or the object (with keys `GIVN` and `SURN`)?
+There is no obvious clean and elegant work-around.
+
 ## `CONT` and `CONC` tags
 
 GEDCOM has two nested tags, `CONT` and `CONC`, that are present only to allow text
@@ -121,6 +129,12 @@ Some things we might want to normalize at some point:
 I perform no normalization in the examples in this document.
 
 *Brandon: As we discussed earlier, I think we start with minimal normalization (for the matching phase at least): let each database model the data the way it wants. The downside of that is that we have to be aware of 3-4 ways of representing a family, 3-4 ways of representing birth/death/etc. events, 3-4 ways of representing dates, and so on. The alternative is that we have to decide a "correct" model to transform everything into, and frankly, after a long time of working on this, I'm not sure what that is. As for dates and places, I propose we don't normalize initially, but allow ourselves to do it later. We could either use different properties (placeText, placeURI, placeWKT, placeClean, etc.) or different types ("place": . . . @type: URI, etc.). Both have advantages and disadvantages. The latter seems cleaner, but will have your multimap problem below, because a single property may have several "values" (same value in different formats). For standardized dates, I actually like the date format in GEDCOMX; it even handles uncertainty in a reasonable (if not 100% complete) way.*
+
+> (Luther) @Brandon: Agreed.  We'll want to cross this bridge eventually, I suspect, but for the purpose of initial match generation I don't think it will be necessary.
+> 
+> The multimap idea is actually quasi-normative in JSON-LD; see, for example, [the "@container" : "@language" example usage in the current JSON-LD standard](http://www.w3.org/TR/json-ld/#string-internationalization).
+> Defining appropriate "@container"-like syntax will probably be something we tackle at some point.
+
 
 ## Multimaps
 
@@ -228,8 +242,13 @@ I convert `MultiMap<K,V>` into `Map<K,Set<V>>`, as follows:
 
 *Brandon: I think this is a reasonable way to handle a many-to-many link. I think my quad approach above is better theoretically, but not in JSON-LD. One question; if I am trying to find this link from the child's perspective ("which families is _:I671 in?"), how difficult will it be? I know it is a bit cumbersome when storing FK arrays in a ORDBMS.*
 
+> (Luther) @Brandon: GEDCOM puts the link in both; you'll see that _:I675 has fields "FAMS" and "FAMC" which point to all the "FAM"-type nodes in which _:I675 participates.
+> If we stored it in only one place, we'd want a graph database engine rather than a relational database engine in order to answer those queries efficiently.
+
 ## Context
 
 To do: create a GEDCOM-appropriate `@context` object.
 
 *Brandon: I get the feeling that it is best practice in JSON-LD to create a separate context for each incoming model that translates into universal URI's, right?*
+
+> (Luther) @Brandon: that is my understanding too.
