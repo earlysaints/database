@@ -86,8 +86,6 @@ I'll use the payload field approach in my examples below.
 
 *I have found it to be a clean way of handling a lot of complex situations. However, doing this in JSON-LD would be very unwieldy (every statement is an independent object), and would break the nested object model that makes JSON-LD nice to use.*
 
-```
-
 ## `CONT` and `CONC` tags
 
 GEDCOM has two nested tags, `CONT` and `CONC`, that are present only to allow text
