@@ -226,7 +226,7 @@ I convert `MultiMap<K,V>` into `Map<K,Set<V>>`, as follows:
 ]
 ```
 
-* Brandon: I think this is a reasonable way to handle a many-to-many link. I think my quad approach above is better theoretically, but not in JSON-LD. One question; if I am trying to find this link from the child's perspective ("who are the parents of _:I671?"), how difficult will it be? I know it is a bit cumbersome when storing FK arrays in a ORDBMS. Personally, I believe that these kinds of "balanced" relationships (in which both nodes are of equal weight; it is not simply a property of one of them) should be stored independently of both of them, but the common practices of RDF, GEDCOMX, JSON-LD, etc. demonstrate that I am probably in the minority. *
+*Brandon: I think this is a reasonable way to handle a many-to-many link. I think my quad approach above is better theoretically, but not in JSON-LD. One question; if I am trying to find this link from the child's perspective ("who are the parents of _:I671?"), how difficult will it be? I know it is a bit cumbersome when storing FK arrays in a ORDBMS. Personally, I believe that these kinds of "balanced" relationships (in which both nodes are of equal weight; it is not simply a property of one of them) should be stored independently of both of them, but the common practices of RDF, GEDCOMX, JSON-LD, etc. demonstrate that I am probably in the minority. *
 
 ## Context
 
