@@ -1,0 +1,48 @@
+// gedcom.jsonld    JSON-LD Context file for GEDCOM files
+
+{
+    "@context":
+    {
+        //ENTITY TYPES
+        "INDI":"http://schema.org/Person",
+        "FAM":"",
+
+        //PROPERTIES OF ENTITIES
+        "_UID":"",
+        "NAME": "http://schema.org/name", 
+        "GIVN":"http://schema.org/givenName",
+        "SURN":"http://schema.org/familyName",
+        "SEX":"http://schema.org/gender",
+        
+        //EVENTS
+        "BIRT":"",
+        "DEAT":"",
+        "BURI":"",
+        "EVEN":"http://schema.org/event", // I don't think this is a good match
+        "CENS":"",
+        "RESI":"http://schema.org/Residence",
+        "MARR":"http://schema.org/MarryAction",
+
+        //RELATIONSHIPS
+        "FAMS":"",
+        "FAMC":"",
+        "HUSB":"http://schema.org/spouse", // ???
+        "WIFE":"http://schema.org/spouse", // ???
+        "CHIL":"http://schema.org/children", // not sure about this
+
+        //SOURCES & METADATA
+        "SOUR":"http://schema.org/citation", // ??? http://schema.org/source has been co-opted by the medical people
+        "REPO":"",
+        "ABBR":"",
+        "CHAN":"http://schema.org/modifiedTime",
+        "NOTE":"http://schema.org/comment",
+        "PAGE":"",
+        "QUAY":"",
+        "TITL":"http://schema.org/name", // http://schema.org/title has been co-opted by job postings
+
+        //SPACE & TIME QUALIFIERS
+        "DATE":"http://schema.org/Date",
+        "PLAC":"http://schema.org/Place",
+        "TIME":"http://schema.org/Time"
+    }
+}
