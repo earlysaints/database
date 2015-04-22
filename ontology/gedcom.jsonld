@@ -4,24 +4,25 @@
     "@context":
     {
         //ENTITY TYPES
-        "INDI":"http://schema.org/Person",
+        "INDI":"http://schema.org/Person", // = http://xmlns.com/foaf/0.1/Person
         "FAM":"",
 
         //PROPERTIES OF ENTITIES
         "_UID":"",
-        "NAME": "http://schema.org/name", 
-        "GIVN":"http://schema.org/givenName",
-        "SURN":"http://schema.org/familyName",
-        "SEX":"http://schema.org/gender",
+        "NAME": "http://schema.org/name", // or http://xmlns.com/foaf/0.1/name
+        "GIVN":"http://schema.org/givenName", // or http://xmlns.com/foaf/0.1/givenName
+        "SURN":"http://schema.org/familyName", // or http://xmlns.com/foaf/0.1/familyName
+        "SEX":"http://schema.org/gender", // or http://xmlns.com/foaf/0.1/gender
         
         //EVENTS
-        "BIRT":"",
+        //Need to find these events as properties of persons, not as independent Event entities
+        "BIRT":"", 
         "DEAT":"",
         "BURI":"",
         "EVEN":"http://schema.org/event", // I don't think this is a good match
         "CENS":"",
-        "RESI":"http://schema.org/Residence",
-        "MARR":"http://schema.org/MarryAction",
+        "RESI":"http://schema.org/Residence", // actually, this is a type of place, not a property of a person
+        "MARR":"http://schema.org/MarryAction", // I'm not sure this matches in structure?
 
         //RELATIONSHIPS
         "FAMS":"",
