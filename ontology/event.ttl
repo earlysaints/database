@@ -1,0 +1,229 @@
+@prefix : <http://purl.org/NET/c4dm/event.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@base <http://purl.org/NET/c4dm/event.owl> .
+
+<http://purl.org/NET/c4dm/event.owl> rdf:type owl:Ontology ;
+                                     rdfs:label "The Event ontology" ;
+                                     owl:versionInfo "Revision: 1.01" ;
+                                     owl:imports <http://www.w3.org/2006/time> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+
+
+vs:term_status rdf:type owl:AnnotationProperty .
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+:agent rdf:type owl:ObjectProperty ;
+       rdfs:label "agent" ;
+       rdfs:comment """
+		Relates an event to an active agent (a person, a computer, ... :-) )
+		""" ;
+       vs:term_status "stable" ;
+       rdfs:domain :Event ;
+       owl:inverseOf :agent_in ;
+       owl:equivalentProperty :hasAgent ;
+       rdfs:range foaf:Agent .
+
+:agent_in rdf:type owl:ObjectProperty ;
+          vs:term_status "stable" ;
+          owl:equivalentProperty :isAgentIn .
+
+:factor rdf:type owl:ObjectProperty ;
+        rdfs:label "factor" ;
+        vs:term_status "stable" ;
+        rdfs:comment """
+		Relates an event to a passive factor (a tool, an instrument, an abstract cause...)
+		""" ;
+        rdfs:domain :Event ;
+        owl:inverseOf :factor_of ;
+        owl:equivalentProperty :hasFactor .
+
+:factor_of rdf:type owl:ObjectProperty ;
+           vs:term_status "stable" ;
+           owl:equivalentProperty :isFactorOf .
+
+:hasAgent rdf:type owl:ObjectProperty ;
+          vs:term_status "deprecated" .
+
+:hasFactor rdf:type owl:ObjectProperty ;
+           vs:term_status "deprecated" .
+
+:hasProduct rdf:type owl:ObjectProperty ;
+            vs:term_status "deprecated" ;
+            owl:equivalentProperty :product .
+
+:hasSubEvent rdf:type owl:ObjectProperty ;
+             vs:term_status "deprecated" ;
+             owl:equivalentProperty :sub_event .
+
+:isAgentIn rdf:type owl:ObjectProperty ;
+           rdfs:label "agent in" ;
+           vs:term_status "deprecated" .
+
+:isFactorOf rdf:type owl:ObjectProperty ;
+            rdfs:label "factor of" ;
+            vs:term_status "deprecated" .
+
+:place rdf:type owl:ObjectProperty ;
+       rdfs:label "place" ;
+       vs:term_status "stable" ;
+       rdfs:comment """
+		Relates an event to a spatial object.
+		""" ;
+       rdfs:domain :Event ;
+       rdfs:range geo:SpatialThing .
+
+:producedIn rdf:type owl:ObjectProperty ;
+            rdfs:label "produced in" ;
+            vs:term_status "deprecated" ;
+            owl:equivalentProperty :produced_in .
+
+:produced_in rdf:type owl:ObjectProperty ;
+             vs:term_status "stable" .
+
+:product rdf:type owl:ObjectProperty ;
+         rdfs:label "product" ;
+         rdfs:comment """
+		Relates an event to something produced during the event---a sound, a pie, whatever...
+		""" ;
+         vs:term_status "stable" ;
+         rdfs:domain :Event ;
+         owl:inverseOf :produced_in .
+
+:sub_event rdf:type owl:ObjectProperty ;
+           rdfs:label "sub-event" ;
+           rdfs:comment """
+		This property provides a way to split a complex event (for example, a performance involving several 
+		musicians) into simpler ones (one event per musician).
+		""" ;
+           vs:term_status "stable" ;
+           rdfs:domain :Event ;
+           rdfs:range :Event .
+
+:time rdf:type owl:ObjectProperty ;
+      rdfs:label "time" ;
+      vs:term_status "stable" ;
+      rdfs:comment """
+		Relates an event to a time object, classifying a time region (either instantaneous or having an extent).
+		By using the Timeline ontology here, you can define event happening on a recorded track or on any 
+		media with a temporal extent.
+		""" ;
+      rdfs:domain :Event ;
+      rdfs:range time:TemporalEntity .
+
+foaf:maker rdf:type owl:ObjectProperty .
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+:hasLiteralFactor rdf:type owl:DatatypeProperty ;
+                  vs:term_status "deprecated" ;
+                  owl:equivalentProperty :literal_factor .
+
+:literal_factor rdf:type owl:DatatypeProperty ;
+                rdfs:label "literal factor" ;
+                vs:term_status "stable" ;
+                rdfs:comment """
+		Relates an event to a factor which can be described as a literal. This property
+		should not be used as-is, but should be subsumed by other, more specific, properties
+		(like an hypothetic :weatherCelsius, linking an event to a temperature).
+		""" ;
+                rdfs:domain :Event .
+
+dc:date rdf:type owl:DatatypeProperty .
+
+dc:description rdf:type owl:DatatypeProperty .
+
+dc:title rdf:type owl:DatatypeProperty .
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+:Event rdf:type owl:Class ;
+       rdfs:label "Event" ;
+       rdfs:comment """
+		An arbitrary classification of a space/time region, by a 
+		cognitive agent. An event may have actively participating agents,
+		passive factors, products, and a location in space/time.
+		""" ;
+       vs:term_status "stable" .
+
+:Factor rdf:type owl:Class ;
+        rdfs:label "Factor" ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :factor_of ;
+                              owl:someValuesFrom :Event
+                            ] ;
+        owl:disjointWith foaf:Agent ;
+        rdfs:comment """
+		Everything used as a factor in an event
+		""" ;
+        vs:term_status "stable" .
+
+:Product rdf:type owl:Class ;
+         rdfs:label "Product" ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :produced_in ;
+                               owl:someValuesFrom :Event
+                             ] ;
+         rdfs:comment """
+		Everything produced by an event
+		""" ;
+         vs:term_status "stable" .
+
+geo:SpatialThing rdf:type owl:Class .
+
+foaf:Agent rdf:type owl:Class .
+
+foaf:Person rdf:type owl:Class .
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+<http://moustaki.org/foaf.rdf#moustaki> rdf:type owl:NamedIndividual ,
+                                                 foaf:Person .
+
+<http://purl.org/NET/c4dm/event.owl> rdf:type owl:NamedIndividual ,
+                                              owl:Thing ;
+                                     dc:title "The Event ontology" ;
+                                     dc:date "$Date: 2007/06/29 15:25:11 $" ;
+                                     dc:description """
+		This ontology deals with the notion of reified events---
+		events seen as first-class objects. It only defines one
+		concept: Event, which may have agents (actively
+		participating), factors (passively participating), products,
+		and a location in space and time. 
+
+		Regarding the ontological status of event tokens, they are seen
+		as the way cognitive agents classify space/time regions
+	""" ;
+                                     foaf:maker <http://moustaki.org/foaf.rdf#moustaki> .
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
