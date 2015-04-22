@@ -94,6 +94,11 @@ One reason JSON-LD has *not* chosen to implement value-and-nested syntax
 is that it makes the common JSON access syntax ambiguous; does `person.NAME` (or `person["NAME"]`) yield the string (`"Stephen Joseph /Abbott/"`) or the object (with keys `GIVN` and `SURN`)?
 There is no obvious clean and elegant work-around.
 
+> (Luther) Well, none in dynamically-typed languages anyway.
+> In statically-typed languages with tagged union (as opposed to polymorphism-based) JSON libraries
+> it is straightforward to have the typed-value access syntax overloaded for `$text`, `$link`, `@value`, full-object, and raw-value fields.
+> In languages with return-type overloading (Haskell and Perl) we could do even better…
+
 ## `CONT` and `CONC` tags
 
 GEDCOM has two nested tags, `CONT` and `CONC`, that are present only to allow text
@@ -132,8 +137,8 @@ I perform no normalization in the examples in this document.
 
 > (Luther) @Brandon: Agreed.  We'll want to cross this bridge eventually, I suspect, but for the purpose of initial match generation I don't think it will be necessary.
 > 
-> The multimap idea is actually quasi-normative in JSON-LD; see, for example, [the "@container" : "@language" example usage in the current JSON-LD standard](http://www.w3.org/TR/json-ld/#string-internationalization).
-> Defining appropriate "@container"-like syntax will probably be something we tackle at some point.
+> The multimap idea is actually has precedent in JSON-LD; see, for example, [the `"@container" : "@language"` example usage in the current JSON-LD standard](http://www.w3.org/TR/json-ld/#string-internationalization).
+> Defining appropriate `@container`-like syntax will probably be something we tackle at some point.
 
 
 ## Multimaps
