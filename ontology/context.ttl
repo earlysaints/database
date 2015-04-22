@@ -1,0 +1,33 @@
+# Geo-historical Context Ontology
+# A slight extension of RDF for describing real world phenomena with geographic and historic context, with basic handling of uncertainty
+
+@prefix : <http://carto.byu.edu/ontologies/context.ttl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix s: <http://schema.org/docs/context.owl#> .
+
+@base  <http://carto.byu.edu/ontologies/assertion.ttl#> .
+
+:Description a rdfs:Class ;
+              owl:subClassOf rdfs:Resource ; #should this be a graph? a statement?
+              rdfs:comment "a statement of fact; should be a named graph"@en .
+
+:validOn a owl:dataTypeProperty;
+               rdfs:domain :Description ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "was valid on"@en ;
+               rdfs:comment "a date/time of an instant at which the subject graph was valid; this SHOULD NOT be used to declare when an event occured, but when a state existed. For example, 'Town X had population 34,536 on 3/14/2012.' Either "@en .
+
+:validStarting a owl:dataTypeProperty;
+               rdfs:domain :Description ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "was valid starting at"@en ;
+               rdfs:comment "a date/time at which the subject graph began to be valid; this SHOULD NOT be used to declare when an event occured, but when a state existed. For example, 'Town X had mayor A starting on 3/14/2012.'"@en .
+               
+:validEnding a owl:dataTypeProperty;
+               rdfs:domain :Description ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "was valid until"@en ;
+               rdfs:comment "a date/time at which the subject graph ceased to be valid; this SHOULD NOT be used to declare when an event occured, but when a state existed. For example, 'Town X had mayor A until 3/14/2012.'"@en .

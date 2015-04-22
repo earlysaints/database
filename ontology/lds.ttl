@@ -1,0 +1,709 @@
+@prefix : <http://carto.byu.edu:8890/ontologies/lds/> .
+@prefix bio: <http://publ.org/vocab/bio/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix umbel: <http://umbel.org/umbel/rc/> .
+@prefix gen: <http://purl.org/gen/0.1#> . #genealogy ontology
+@base <http://carto.byu.edu:8890/ontologies/lds/> .
+
+<http://carto.byu.edu/earlysaints/lds.owl> rdf:type owl:Ontology ; 
+                                           rdfs:label "Latter Day Saint Administrative Ontology"@en ; 
+                                           rdfs:comment "A vocabulary of people, places, activities, and organizations of the churches that follow Joseph Smith. This is not an ontology of the doctrines and beliefs of these churches, but the outward practices therein. Its primary purpose is to facilitate the documentation of the history of the early (19th Century) Church and its members."@en .
+
+
+
+#################################################################
+#    Organizations
+#################################################################
+
+
+:ReligiousMilitaryUnit rdf:type owl:Class ;
+			rdfs:subClassOf org:FormalOrganization;
+			rdfs:label "Religious Military Unit"@en;
+			rdfs:comment "An organization of soldiers who are associated with a church; may be a regular military unit, like the Mormon Battalion, or a paramilitary force."@en . 
+
+:ChurchUnit rdf:type owl:Class ; 
+            rdfs:label "ChurchUnit"@en ; 
+            rdfs:subClassOf org:FormalOrganization ; 
+            rdfs:comment "An officially organized religion, or any sub-organization therein."@en . 
+
+:RestorationChurch rdf:type owl:Class ; 
+                   rdfs:label "Denomination"@en ; 
+                   rdfs:subClassOf :ChurchUnit ,
+                                   umbel:ReligiousDenomination ; 
+                   rdfs:comment "An independent religious organization that owes some allegiance to Joseph Smith."@en . 
+
+:CofC rdf:type :RestorationChurch ,
+               owl:NamedIndividual ; 
+      skos:prefLabel "Community of Christ"@en ; 
+      skos:definition "The denomination that claims Joseph Smith III as the second prophet and president, officially reorganized in 1860. Formerly known as the Reorganized Church of Jesus Christ of Latter Day Saints."@en ; 
+      :OrganizedFrom :EarlyChurch . 
+
+:EarlyChurch rdf:type :RestorationChurch ,
+                      owl:NamedIndividual ; 
+             :Organized "1830-04-06" ; 
+             skos:prefLabel "The Church of Christ"@en ; 
+             skos:definition "The original Church organized by Joseph Smith in 1830. Several historical and current churches claim to be the rightful successor to this Church; to be neutral, this ontology posits that this organization ceased as such with the death of Joseph Smith."@en . 
+
+:LDS rdf:type :RestorationChurch ,
+              owl:NamedIndividual ; 
+     skos:prefLabel "Church of Jesus Christ of Latter-day Saints"@en ; 
+     skos:definition "The body that followed Brigham Young and the Twelve after the death of Joseph Smith."@en ; 
+     :OrganizedFrom :EarlyChurch . 
+
+:Congregation rdf:type owl:Class ; 
+              rdfs:label "Congregation"@en ; 
+              rdfs:subClassOf :ChurchUnit ,
+                              umbel:Congregation ; 
+              rdfs:comment "A local church organization that meets each week."@en . 
+
+:Branch rdf:type owl:Class ; 
+        rdfs:label "Branch"@en ; 
+        rdfs:subClassOf :Congregation ; 
+        rdfs:comment "The basic type of congregation in the early Church of Christ and in some churches in the restoration movement; in the Church of Jesus Christ of Latter-day Saints since the 1850s, a branch is generally a relatively small congregation that is not fully organized. A Branch is led by a Presiding Elder or President."@en . 
+
+:Ward rdf:type owl:Class ; 
+      rdfs:label "Ward"@en ; 
+      rdfs:subClassOf :Congregation ; 
+      rdfs:comment "A large, fully organized congregation in the Church of Jesus Christ of Latter-day Saints since the 1850s, when civic wards (neighborhoods) gradually began to function as independent congregations. A Ward is led by a Bishop"@en . 
+
+:RegionalUnit rdf:type owl:Class ; 
+              rdfs:label "Regional Unit"@en ; 
+              rdfs:subClassOf :ChurchUnit ; 
+              rdfs:comment "An organized collection of congregations, typically with leaders that have authority over the congregations."@en . 
+
+:Stake rdf:type owl:Class ; 
+       rdfs:label "Stake"@en ; 
+       rdfs:subClassOf :RegionalUnit ; 
+       rdfs:comment "A fully organized regional unit, led by a president and high council who have authority over several wards and branches."@en . 
+
+:StakeLikeUnit rdf:type owl:Class ; 
+               rdfs:label "Stake-like Unit"@en ; 
+               rdfs:subClassOf :RegionalUnit ; 
+               rdfs:comment "In the Church of Jesus Christ of Latter-day Saints in the mid-19th Century, a regional organization that functioned somewhat like a stake but was never or rarely called such, and did not have a full stake organization. For example, some settlement areas were led by a resident Apostle rather than a stake presidency."@en . 
+
+:ConferenceUnit rdf:type owl:Class ; 
+                rdfs:label "Conference (unit)"@en ; 
+                rdfs:subClassOf :RegionalUnit ; 
+                rdfs:comment "During the 19th and early 20th century, a regional collection of branches in a mission; later, they were gradually renamed Districts."@en . 
+
+:District rdf:type owl:Class ; 
+          rdfs:subClassOf :RegionalUnit ; 
+          rdfs:comment "Since the early 20th Century, a regional collection of branches in a mission; successor to the Conference."@en . 
+
+:Mission rdf:type owl:Class ; 
+         rdfs:label "Mission"@en ; 
+         rdfs:subClassOf :RegionalUnit ; 
+         rdfs:comment "In the Church of Jesus Christ of Latter-day Saints, a regional organization that is focused on proselytizing. Led by a Mission President who has authority over a set of full-time missionaries, and over the members who are not living in stakes."@en . 
+
+:PioneerCompany rdf:type owl:Class ; 
+                rdfs:label "Pioneer Company"@en ; 
+                rdfs:subClassOf :ChurchUnit ; 
+                rdfs:comment "An organized party of Mormon pioneers during the 19th Century"@en . 
+
+
+##### Church Unit Hierarchies #####
+
+:containsUnit rdf:type owl:ObjectProperty ,
+                   owl:TransitiveProperty ; 
+          rdfs:domain :ChurchUnit ; 
+          rdfs:range :ChurchUnit ; 
+          rdfs:label "ChurchUnit CONTAINS ChurchUnit" ;
+          rdfs:comment "associates a regional church unit, like a stake, with its constituent units, like wards. Inverse of PartOfUnit; because this is typically a many to one relationship, it is generally advisable to explicitly declare PartOf and infer Contains."@en ;
+          owl:inverseOf :partOfUnit . 
+
+:partOfUnit rdf:type owl:ObjectProperty ,
+                 owl:TransitiveProperty ; 
+        rdfs:label "organization2 is PART OF organization1"@en ; 
+        rdfs:domain :ChurchUnit ; 
+        rdfs:range :ChurchUnit;
+        owl:inverseOf :containsUnit ;
+        rdfs:comment "associates a church unit, like a ward, with a regional church unit that has jurisdiction over it, like a stake. Inverse of ContainsUnit; because this is typically a many to one relationship, it is generally advisable to explicitly declare PartOf and infer Contains."@en . 
+
+:coveredBy rdf:type owl:ObjectProperty ; 
+           rdfs:range :ChurchUnit ; 
+           owl:inverseOf :covers ; 
+           rdfs:domain  geo:SpatialThing ; 
+           owl:propertyChainAxiom ( :coveredBy
+                                    :partOfUnit
+                                  ) ;
+           rdfs:label "SpatialThing IS COVERED BY ChurchUnit";
+           rdfs:comment "associates a location, like a town or a polygon, with the Congregation that has juridiction over it. Inverse of Covers; this relationship is a more salient property of the congregation than the place, so Covers is generally preferred for explicit declarations.". 
+
+:covers rdf:type owl:ObjectProperty ; 
+        rdfs:domain :ChurchUnit ; 
+        rdfs:range geo:SpatialThing ; 
+        owl:inverseOf :coveredBy ;
+        owl:propertyChainAxiom ( :containsUnit
+                                 :covers
+                               );
+        rdfs:label "ChurchUnit COVERS SpatialThing";
+        rdfs:comment "associates a congregation with a place over which it has jurisdiction, like a town or a boundary polygon. Inverse of CoveredBy; this relationship is a more salient property of the congregation than the place, so Covers is generally preferred for explicit declarations.". 
+
+
+##### Organization Genealogy #####
+
+:OrganizationEvent rdf:type owl:Class ; 
+                   rdfs:subClassOf :UnitEvent , org:ChangeEvent . 
+
+:Disorganization rdf:type owl:Class ; 
+                 rdfs:subClassOf :UnitEvent , org:ChangeEvent . 
+
+:createdBy rdf:type owl:AsymmetricProperty ,
+                    owl:FunctionalProperty ,
+                    owl:IrreflexiveProperty ,
+                    owl:ObjectProperty ; 
+           rdfs:label "organization IS CREATED BY event" ; 
+           owl:inverseOf :creates ; 
+           rdfs:range :OrganizationEvent ; 
+           rdfs:domain org:FormalOrganization ; 
+           rdfs:subPropertyOf org:resultedFrom;
+           rdfs:comment "associates an organization with the event that created it. Inverse of Creates; the relationship tends to be more salient for the organization, so CreatedBy is preferred for explicit declarations." . 
+
+:creates rdf:type owl:InverseFunctionalProperty ,
+                  owl:ObjectProperty ; 
+         rdfs:label "event CREATES organization" ; 
+         rdfs:domain :OrganizationEvent ; 
+         rdfs:range org:FormalOrganization ; 
+         rdfs:subPropertyOf org:resultingOrganization, event:product;
+         owl:inverseOf :createdBy ;
+         rdfs:comment "associates an event with an organization created at that event. Inverse of CreatedBy; the relationship tends to be more salient for the organization, so CreatedBy is preferred for explicit declarations." . 
+
+:organizedFrom rdf:type owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ,
+                        owl:ObjectProperty ; 
+               rdfs:label "organization2 was ORGANIZED FROM organization1"@en ; 
+               rdfs:range :ChurchUnit ; 
+               rdfs:domain :ChurchUnit;
+               rdfs:comment "associates an organization with a 'parent,' an organization that previously existed in that location that transferred jurisdiction to the new organization." . 
+
+:organizedDate rdf:type owl:DatatypeProperty ; 
+           rdfs:domain :ChurchUnit ; 
+           rdfs:range xsd:date;
+           rdfs:label "Date of Organization";
+           rdfs:comment "the date on which a church unit was organized" . 
+
+:disorganizedDate rdf:type owl:DatatypeProperty ; 
+              rdfs:domain :ChurchUnit ; 
+              rdfs:range xsd:date ;
+              rdfs:label "Date of Disorganization"@en;
+              rdfs:comment "the date on which a church unit was disorganized"@en . 
+
+
+
+
+
+#################################################################
+#    People
+#################################################################
+
+:LatterDaySaint rdf:type owl:Class ; 
+                rdfs:label "Latter Day Saint"@en ; 
+                rdfs:subClassOf foaf:Person ; 
+                rdfs:comment "A follower of Joseph Smith, a member of the Church he organized or any of the Denominations that have followed therefrom. The largest of such, the Church of Jesus Christ of Latter-day Saints, adopted the hyphenated form of \"-day\" (with a British origin), which is not used here to remain neutral."@en . 
+
+:PersonalEvent rdf:type owl:Class ; 
+               rdfs:subClassOf :Event ,
+                               bio:Event ;
+               rdfs:comment "an event that exists primarily as a significant occurrence in the lives of one or more people; for example, a war is not a personal event (it has a lot more meaning than just that the soldiers experienced it), but a high school graduation is a personal event (it happened solely for the experience of the students)."@en . 
+
+:Excommunication rdf:type owl:Class ; 
+                 rdfs:subClassOf :PersonalEvent ,
+                                 bio:IndividualEvent ;
+                 rdfs:comment "an event that causes a person to no longer officially be a member of an organization (in this context, a church unit)"@en . 
+
+
+##### Roles in organizations #####
+
+:hasMember rdf:type owl:ObjectProperty ; 
+           rdfs:label "organization HAS MEMBER person"@en ; 
+           rdfs:domain :ChurchUnit ; 
+           rdfs:range :LatterDaySaint ; 
+           rdfs:subPropertyOf org:hasMember ; 
+           owl:inverseOf :memberOf ;
+           owl:propertyChainAxiom ( :ContainsUnit
+                                    :HasMember
+                                  ) ;
+          rdfs:comment "associates an organization (in this case a church unit) with a person who belonged to it. Inverse of MemberOf; due to the many-to-few cardinality of this relationship, MemberOf should be declared explicitly, and HasMember should be inferred."@en . 
+
+:memberOf rdf:type owl:ObjectProperty ; 
+          rdfs:label "person IS MEMBER of organization"@en ; 
+          rdfs:range :ChurchUnit ; 
+          owl:inverseOf :hasMember ; 
+          rdfs:domain :LatterDaySaint ; 
+          rdfs:subPropertyOf org:memberOf ; 
+          owl:propertyChainAxiom ( :MemberOf
+                                   :PartOfUnit
+                                 ) ;
+          rdfs:comment "associates a person with an organization (in this case a church unit) of which he or she was a member. Inverse of HasMember; due to the many-to-few cardinality of this relationship, MemberOf should be declared explicitly, and HasMember should be inferred."@en . 
+
+:Calling rdf:type owl:Class ; 
+         rdfs:subClassOf :PersonalEvent ,
+                         bio:IndividualEvent ,
+                         org:Membership ;
+         rdfs:comment "an event in which a person is serving in a role in a church unit over a period of time; for example, BSP was Elders Quorum President in the Buffalo Branch from 1994 to 1996"@en . 
+
+:UnitLeadership rdf:type owl:Class ; 
+                rdfs:subClassOf :Calling . 
+#IS THIS NECESSARY TO DISTINGUISH, or is the particular position enough?
+
+:MissionService rdf:type owl:Class ; 
+                rdfs:subClassOf :Calling .
+#IS THIS NECESSARY TO DISTINGUISH, or is the particular position enough? 
+
+:holdsCalling rdf:type owl:AsymmetricProperty ,
+                       owl:FunctionalProperty ,
+                       owl:IrreflexiveProperty ,
+                       owl:ObjectProperty ; 
+              rdfs:label "person HOLDS CALLING calling"@en ; 
+              rdfs:range :Calling ; 
+              rdfs:domain :LatterDaySaint ; 
+              rdfs:subPropertyOf org:hasMembership;
+              rdfs:comment "associates a person with a calling event in which they served, for example, BSP had calling X"@en . 
+
+:servingAs rdf:type owl:AsymmetricProperty ,
+                    owl:FunctionalProperty ,
+                    owl:IrreflexiveProperty ,
+                    owl:ObjectProperty ; 
+           rdfs:label "calling SERVING AS position"@en ; 
+           rdfs:domain :Calling ; 
+           rdfs:range :Position ; 
+           rdfs:subPropertyOf org:role;
+           rdfs:comment "associates a calling event with the particular position held, for example, calling X was as Elders Quorum President"@en . 
+
+:servingIn rdf:type owl:AsymmetricProperty ,
+                    owl:IrreflexiveProperty ,
+                    owl:ObjectProperty ; 
+           rdfs:label "calling SERVING IN churchUnit"@en ; 
+           rdfs:domain :Calling ; 
+           rdfs:range :ChurchUnit ; 
+           rdfs:subPropertyOf org:organization ;
+           rdfs:comment "associates a calling event with the church unit of which it is a part, for example, calling X was in Ward A"@en . 
+
+:companion rdf:type owl:SymmetricProperty, owl:IrreflexiveProperty, owl:ObjectProperty ;
+           rdfs:label "Has Companion"@en ;
+           rdfs:domain :Calling ;
+           rdfs:range :LatterDaySaint ;
+           rdfs:comment "associates a calling with a person with whom the person is serving on a peer level, such as a mission companion"@en .
+           
+:Position rdf:type owl:Class ; 
+          rdfs:subClassOf org:Role . 
+
+:Leader rdf:type :Position ,
+                 owl:NamedIndividual ; 
+        skos:prefLabel "Church Leader"@en ; 
+        skos:definition "The primary authority over an organization"@en . 
+
+:President rdf:type :Position ,
+                    owl:NamedIndividual ; 
+           skos:prefLabel "President"@en ; 
+           skos:definition "Typically, the preeminent leader of a Church Unit"@en ; 
+           skos:broader :Leader .
+
+:PresidencyCounselor rdf:type :Position ,
+                              owl:NamedIndividual ; 
+                     skos:prefLabel "Counselor in Presidency"@en . 
+
+:Bishop rdf:type :Position ,
+                 owl:NamedIndividual ;
+                 skos:broader :Leader . 
+#NEED TO DIFFERENTIATE FROM PRIESTHOOD OFFICE
+
+:BishopricCounselor rdf:type :Position ,
+                             owl:NamedIndividual ; 
+                    skos:prefLabel "Counselor in Bishopric"@en ;
+                    skos:definition "a person (usually one of two) who assists a bishop in the administration of a ward"@en . 
+
+:Clerk rdf:type :Position ,
+                owl:NamedIndividual ; 
+       skos:prefLabel "Clerk"@en ;
+       skos:definition "A person who assists a bishopric or presidency and keeps records of the proceedings of a church unit."@en . 
+
+:HighCouncillor rdf:type :Position ,
+                         owl:NamedIndividual ; 
+                skos:definition "A member of the High Council that administers a stake"@en ; 
+                skos:prefLabel "High Councillor"@en . 
+
+:Missionary rdf:type :Position ,
+                     owl:NamedIndividual ; 
+            skos:prefLabel "Missionary"@en ;
+            skos:definition "A person who is serving full-time in trying to convert new people to the Church"@en . 
+
+
+
+##### Ordinances #####
+
+:Ordinance rdf:type owl:Class ; 
+           rdfs:subClassOf :PersonalEvent ;
+           rdfs:label "Ordinance"@en ;
+           rdfs:comment "A religious event , conducted under priesthood authority, with real and symbolic significance to one or more recipients" . 
+
+:IndividualOrdinance rdf:type owl:Class ; 
+                     rdfs:subClassOf :Ordinance ,
+                                     bio:IndividualEvent ;
+                     rdfs:label "Individual Ordinance"@en ;
+                     rdfs:comment "An ordinance with a single recipient; baptism is an individual ordinance, the sacrament is not." . 
+
+:ChildBlessing rdf:type owl:Class ; 
+               rdfs:subClassOf :IndividualOrdinance ;
+               rdfs:label "Blessing of a Child"@en ;
+               rdfs:comment "An ordinance in which a child (usually an infant) is officially placed on the records of the Church and given a blessing"@en . 
+
+:Baptism rdf:type owl:Class ; 
+         rdfs:label "Baptism"@en ; 
+         rdfs:subClassOf :IndividualOrdinance ,
+                         bio:Baptism ; 
+         rdfs:comment "An ordinance in which someone is baptized for admittance into the Church."@en . 
+
+:Confirmation rdf:type owl:Class ; 
+              rdfs:subClassOf :IndividualOrdinance ;
+              rdfs:label "Confirmation"@en ;
+              rdfs:comment "An ordinance in which someone recently baptized is confirmed as a member of the Church and given the Gift of the Holy Ghost" . 
+
+:Initiatory rdf:type owl:Class ; 
+            rdfs:subClassOf :IndividualOrdinance ;
+            rdfs:label "Temple Initiatory"@en ;
+            rdfs:comment "A temple ordinance in the Church of Jesus Christ of Latter-day Saints that prepares the recipient for receiving the endowment"@en . 
+
+:Endowment rdf:type owl:Class ; 
+           rdfs:subClassOf :IndividualOrdinance ;
+            rdfs:label "Temple Endowment"@en ;
+            rdfs:comment "A temple ordinance in the Church of Jesus Christ of Latter-day Saints in which the recipient makes several covenants"@en .  
+
+:livingOrdinance rdf:type owl:DatatypeProperty ; 
+                 rdfs:domain :Ordinance ; 
+                 rdfs:range xsd:boolean ;
+                 rdfs:label "Living Ordinance?"@en ;
+                 rdfs:comment "A boolean property that indicates whether the recipient of an ordinance received it in person while alive (TRUE) or received it by proxy in a temple after his or her death (FALSE)"@en .
+
+:performedBy rdf:type owl:AsymmetricProperty ,
+                      owl:FunctionalProperty ,
+                      owl:IrreflexiveProperty ,
+                      owl:ObjectProperty ; 
+             rdfs:domain :Ordinance ; 
+             owl:inverseOf :performs ; 
+             rdfs:range :PriesthoodHolder ; 
+             rdfs:subPropertyOf bio:officiator ;
+             rdfs:label "ordinance WAS PERFORMED BY priesthood holder"@en ;
+             rdfs:comment "associates an ordinance with the person who officiated therein. Inverse of Performs; due to the many to one cardinality and the event cluster, PerformedBy should be declared explicitly and Performs should be inferred."@en . 
+
+:performs rdf:type owl:AsymmetricProperty ,
+                   owl:InverseFunctionalProperty ,
+                   owl:IrreflexiveProperty ,
+                   owl:ObjectProperty ; 
+          rdfs:range :Ordinance ; 
+          rdfs:domain :PriesthoodHolder ;
+          owl:inverseOf :performedBy ;
+          rdfs:label "priesthood holder PERFORMS ordinance"@en ;
+          rdfs:comment "associates a person with an ordinance in which he officiated. Inverse of PerformedBy; due to the many to one cardinality and the event cluster, PerformedBy should be declared explicitly and Performs should be inferred."@en . 
+
+:performedFor rdf:type owl:AsymmetricProperty ,
+                       owl:FunctionalProperty ,
+                       owl:IrreflexiveProperty ,
+                       owl:ObjectProperty ; 
+              rdfs:domain :IndividualOrdinance ; 
+              rdfs:range :LatterDaySaint ; 
+              owl:inverseOf :receivesOrdinance ; 
+              rdfs:subPropertyOf bio:principal ;
+              rdfs:label "ordinance IS PERFORMED FOR person"@en ;
+              rdfs:comment "associates an ordinance event with a single recipient. Inverse of ReceivesOrdinance; because the ordinance is a property of the recipient, receivesOrdinance should be declared explictly, and PerformedFor should be inferred."@en . 
+
+:receivesOrdinance rdf:type owl:AsymmetricProperty ,
+                            owl:InverseFunctionalProperty ,
+                            owl:IrreflexiveProperty ,
+                            owl:ObjectProperty ; 
+                   rdfs:range :IndividualOrdinance ; 
+                   rdfs:domain :LatterDaySaint ;
+                   owl:inverseOf :performedFor ;
+                   rdfs:label "person RECEIVES ordinance"@en ;
+                   rdfs:comment "associates a person with an ordinance that he or she received. Inverse of PerformedFor; because the ordinance is a property of the recipient, receivesOrdinance should be declared explictly, and PerformedFor should be inferred."@en . 
+ 
+:recognizedBy rdf:type owl:AsymmetricProperty ,
+                       owl:IrreflexiveProperty ,
+                       owl:ObjectProperty ; 
+              rdfs:domain :Ordinance ; 
+              owl:inverseOf :recognizes ; 
+              rdfs:range :RestorationChurch ;
+              rdfs:label "ordinance RECOGNIZED BY church"@en ;
+              rdfs:comment "associates an ordinance with a church that acknowledges its validity. Inverse of Recognizes; due to the event cluster and many-to-one cardinality, RecognizedBy should be declared explicitly and Recognizes should be inferred"@en . 
+
+:recognizes rdf:type owl:AsymmetricProperty ,
+                     owl:IrreflexiveProperty ,
+                     owl:ObjectProperty ; 
+            rdfs:range :Ordinance ; 
+            rdfs:domain :RestorationChurch ;
+            owl:inverseOf :recognizedBy ;
+            rdfs:label "church RECOGNIZES ordinance"@en ;
+            rdfs:comment "associates a church with an ordinance that it acknowledges as valid. Inverse of RecognizedBy; due to the event cluster and many-to-one cardinality, RecognizedBy should be declared explicitly and Recognizes should be inferred"@en .
+
+:ParentSealing rdf:type owl:Class ; 
+                rdfs:subClassOf :IndividualOrdinance ;
+                rdfs:label "Sealing to Parents"@en ;
+                rdfs:comment "a temple ordinance in which a child is sealed to his or her parents, who have previously been sealed as spouses"@en . 
+
+:SpouseSealing rdf:type owl:Class ; 
+               rdfs:subClassOf :Ordinance ,
+                               bio:Marriage ;
+               rdfs:label "Sealing of Spouses"@en ;
+               rdfs:comment "a temple ordinance in which a man and woman are married 'for time and all eternity.' The resultant family is considered 'in the covenant.' " . 
+
+:SealedFamily rdf:type owl:Class ; 
+              rdfs:subClassOf gen:Family ;
+              rdfs:label "Family (sealed)"@en ; 
+              rdfs:subClassOf :ChurchUnit ; 
+              rdfs:comment "A family in which the parents have been sealed in an LDS temple, and is thus 'in the covenant.' "@en . 
+
+:sealsSpouse rdf:type owl:AsymmetricProperty ,
+                       owl:IrreflexiveProperty ,
+                       owl:ObjectProperty ; 
+              rdfs:range foaf:Person ; 
+              rdfs:domain :SpouseSealing ; 
+              owl:inverseOf :sealedBy ;
+              rdfs:subPropertyOf bio:partner ;
+              rdfs:label "SpouseSealing SEALS person"@en ;
+              rdfs:comment "associates a Sealing of Spouses ordinance with the a husband or wife receiving it. Inverse of SealedBy; due to the event cluster, SealedSpouse should be declared explicitly, and SealedBy should be inferred."@en . 
+
+:sealedBy rdf:type owl:AsymmetricProperty ,
+                   owl:IrreflexiveProperty ,
+                   owl:ObjectProperty ; 
+          rdfs:domain :LatterDaySaint, :SealedFamily ; 
+          owl:inverseOf :sealsSpouse ; 
+          rdfs:range :SpouseSealing ;
+          rdfs:label "person IS SEALED BY SpouseSealing"@en ;
+          rdfs:comment "associates a person as a husband or wife, or a family in a Sealing of Spouses ordinance. Inverse of SealsSpouse; due to the event cluster, SealsSpouse should be declared explicitly, and SealedBy should be inferred."@en . 
+
+:toFamily rdf:type owl:ObjectProperty ; 
+		  rdfs:label "ordinance APPLIES TO FAMILY sealedFamily"@en ;
+          rdfs:comment "The sealed family to which a sealing ordinance is made. For a Sealing of Spouses, the sealed family is created by the ordinance; for a Sealing to Parent, the sealed family is expected to already exist."@en ; 
+          rdfs:range :SealedFamily ; 
+          rdfs:domain :ParentSealing ,
+                      :SpouseSealing . 
+
+:SecondAnointing rdf:type owl:Class ; 
+                 rdfs:subClassOf :IndividualOrdinance;
+                 rdfs:label "Second Anointing"@en ;
+                 rdfs:comment "In the early church, a temple ordinance beyond the endowment."@en . 
+
+
+##### Priesthood #####
+
+:PriesthoodHolder rdf:type owl:Class ; 
+                  rdfs:subClassOf :LatterDaySaint ;
+                  rdfs:label "Priesthood Holder"@en ;
+                  rdfs:comment "a person who holds the priesthood, as recognized by a Restoration Church"@en . 
+
+:Deacon rdf:type owl:Class ; 
+        rdfs:subClassOf :PriesthoodHolder ;
+        rdfs:label "Deacon"@en ;
+        rdfs:comment "the lowest office in the Aaronic Priesthood"@en . 
+
+:Teacher rdf:type owl:Class ; 
+         rdfs:subClassOf :PriesthoodHolder ;
+         rdfs:label "Teacher"@en ;
+         rdfs:comment "the second office in the Aaronic Priesthood"@en . 
+
+:Priest rdf:type owl:Class ; 
+        rdfs:subClassOf :PriesthoodHolder ;
+        rdfs:label "Priest"@en ;
+        rdfs:comment "the third office in the Aaronic Priesthood"@en . 
+
+:Bishop rdf:type owl:Class ; 
+        rdfs:subClassOf :PriesthoodHolder ; 
+        skos:prefLabel "Bishop"@en ; 
+        rdfs:comment "In the Early Church, an officer who had authority over Aaronic Priesthood holders in an area and responsibility for temporal affairs; In the Church of Jesus Christ of Latter-day Saints since the 1860s, the preeminent ecclesiastical leader of a Ward."@en ; 
+        skos:definition "In the Early Church, an officer who had authority over Aaronic Priesthood holders in an area and responsibility for temporal affairs; In the Church of Jesus Christ of Latter-day Saints since the 1860s, the preeminent ecclesiastical leader of a Ward."@en ; 
+        skos:broader :Leader . 
+# There are two things here, Bishop as a priesthood office and Bishop as a calling; need to be separated
+
+:Elder rdf:type owl:Class ; 
+       rdfs:subClassOf :PriesthoodHolder ;
+       rdfs:label "Elder"@en ;
+       rdfs:comment "the lowest office in the Melchizedek Priesthood"@en . 
+
+:Seventy rdf:type owl:Class ; 
+         rdfs:subClassOf :PriesthoodHolder ;
+         rdfs:label "Seventy"@en ;
+         rdfs:comment "An office of the Melchizedek Priesthood (not the general authority member of a Quorum of Seventy)"@en . 
+
+:HighPriest rdf:type owl:Class ; 
+            rdfs:subClassOf :PriesthoodHolder ;
+            rdfs:label "High Priest"@en ;
+            rdfs:comment "An office of the Melchizedek Priesthood"@en . 
+ 
+:Apostle rdf:type owl:Class ; 
+         rdfs:subClassOf :PriesthoodHolder ;
+         rdfs:label "Apostle"@en ;
+         rdfs:comment "An office of the Melchizedek Priesthood (not necessarily a member of the Quorum of Twelve Apostles)"@en . 
+
+:Ordination rdf:type owl:Class ; 
+            rdfs:subClassOf :IndividualOrdinance, bio:Ordination ;
+            rdfs:label "Ordination"@en ;
+            rdfs:label "An ordinance in which the recipient is given a particular office of the priesthood"@en . 
+
+#HOW DO WE ASSOCIATE AN ORDINATION WITH THE PRIESTHOOD OFFICE?
+
+:Quorum rdf:type owl:Class ; 
+        rdfs:label "Quorum"@en ; 
+        rdfs:subClassOf :ChurchUnit ; 
+        rdfs:comment "An organized group of priesthood holders"@en . 
+
+:QuorumMeeting rdf:type owl:Class ; 
+               rdfs:label "Quorum Meeting"@en ; 
+               rdfs:subClassOf :Meeting ; 
+               rdfs:comment "A meeting of the priesthood holders that comprise a quorum."@en . 
+
+ 
+ 
+ 
+#################################################################
+#    Places
+#################################################################
+
+:MormonPlace rdf:type owl:Class ; 
+             rdfs:subClassOf geo:SpatialThing . 
+
+##### Historical Sites #####
+
+:MemorialSite rdf:type owl:Class ; 
+              rdfs:label "Memorial Site"@en ; 
+              rdfs:subClassOf :MormonPlace ; 
+              rdfs:comment "A space that has been constructed to commemorate significant historical places and/or events; they may consist of signs, monuments, visitors centers, or merely land that has been set aside."@en . 
+
+:commemoratedBy rdf:type owl:AsymmetricProperty ,
+                         owl:IrreflexiveProperty ,
+                         owl:ObjectProperty ; 
+                owl:inverseOf :commemorates ; 
+                rdfs:range :MemorialSite ; 
+                rdfs:label "event IS COMMEMORATED BY memorialsite"@en ;
+                rdfs:comment "associates a historical event, like a battle or a campsite, with a modern memorial facility, like a visitors center or sign. Inverse of Commemorates; because the commemorated event is typically an inherent property of the site, not vice versa, Commemorates is generally preferred over CommemoratedBy for explicit declarations." ;
+                rdfs:domain event:Event . 
+
+:commemorates rdf:type owl:AsymmetricProperty ,
+                       owl:IrreflexiveProperty ,
+                       owl:ObjectProperty ; 
+              rdfs:domain :MemorialSite ; 
+              rdfs:label "memorialSite COMMEMORATES event" ;
+              rdfs:comment "associates a modern memorial facility, like a visitors center or sign, with a historical event, like a battle or a campsite. Inverse of CommemoratedBy; because the commemorated event is an inherent property of the site, not vice versa, Commemorates is generally preferred over CommemoratedBy for explicit declarations." ;
+              rdfs:range event:Event . 
+
+##### Buildings #####
+
+:ChurchBuilding rdf:type owl:Class ; 
+                rdfs:label "Church Building"@en ; 
+                owl:equivalentClass umbel:ReligiousBuilding ; 
+                rdfs:subClassOf org:Site, :MormonPlace ;
+                rdfs:comment "A building that is primarily used for religious services"@en . 
+
+:Meetinghouse rdf:type owl:Class ; 
+              rdfs:label "Meetinghouse"@en ; 
+              rdfs:subClassOf :ChurchBuilding ; 
+              rdfs:comment "A building in which one or more local congregations meet regularly, and is open to the public."@en . 
+
+:StakeCenter rdf:type owl:Class ; 
+             rdfs:label "Stake Center"@en ; 
+             rdfs:subClassOf :Meetinghouse ; 
+             rdfs:comment "In the Church of Jesus Christ of Latter-day Saints since the 1950s, a large meetinghouse that has space for the functions of a Stake as well as housing individual congregations; replaced tabernacles."@en . 
+
+:Tabernacle rdf:type owl:Class ; 
+            rdfs:label "Tabernacle"@en ; 
+            rdfs:subClassOf :Meetinghouse ; 
+            rdfs:comment "In the Church of Jesus Christ of Latter-day Saints from the 1850s, a large meetinghouse that could accommodate regional meetings such as stake conferences. Although they were replaced by Stake Centers starting in the 1950s, some are still in use today."@en . 
+
+:Temple rdf:type owl:Class ; 
+        rdfs:subClassOf :ChurchBuilding ; 
+        rdfs:comment "A building of greater religious significance, and used for different purposes, than a regular meetinghouse. In the Early Church, they were public meetinghouses with additional space for private temple ordinances and Church headquarters. In the Community of Christ, the Temple has  public meeting space and headquarters; in the Church of Jesus Christ of Latter-day Saints, the temple has only private space for temple ordinances."@en . 
+
+:TempleDistrict rdf:type owl:Class ; 
+                rdfs:subClassOf :RegionalUnit;
+                rdfs:label "Temple District"@en ;
+                rdfs:comment "The officially designated region in which Church members are assigned to attend a particular temple"@en . 
+
+:headquartersFor rdf:type owl:AsymmetricProperty ,
+                          owl:IrreflexiveProperty ,
+                          owl:ObjectProperty ; 
+                 rdfs:domain :ChurchBuilding ; 
+                 rdfs:range :ChurchUnit ; 
+                 owl:inverseOf :meetsAt ; 
+                 rdfs:subPropertyOf org:siteOf ;
+                 rdfs:label "church building IS THE HEADQUARTERS FOR church unit"@en ;
+                 rdfs:comment "associates a meetinghouse or office with the church unit that is based or meets there. Inverse of MeetsAt."@en . 
+
+:meetsAt rdf:type owl:AsymmetricProperty ,
+                  owl:IrreflexiveProperty ,
+                  owl:ObjectProperty ; 
+         rdfs:range :ChurchBuilding ; 
+         rdfs:domain :ChurchUnit ; 
+         rdfs:subPropertyOf org:hasSite;
+         rdfs:label "church unit MEETS AT church building"@en ;
+         rdfs:comment "associates a church unit with the building in which it typically holds its meetings. Inverse of HeadquartersFor."@en . 
+
+ 
+#################################################################
+#    Events
+#################################################################
+
+:Event rdf:type owl:Class ; 
+       rdfs:subClassOf event:Event . 
+
+:UnitEvent rdf:type owl:Class ; 
+           rdfs:subClassOf :Event ;
+           rdfs:label "Church Unit Event"@en ;
+           rdfs:comment "an event that is officially sponsored by a church unit for its members"@en . 
+
+:eventIsOfUnit rdf:type owl:ObjectProperty,
+					owl:IrreflexiveProperty ,
+					owl:AsymmetricProperty ;
+		   rdfs:domain :UnitEvent ;
+		   rdfs:range :ChurchUnit ;
+		   rdfs:label "event IS OF church unit"@en ;
+		   rdfs:comment "associates a unit event with the church unit that sponsors it"@en .
+
+# Do we need to explicitly declare other types of events?
+
+##### Church Meetings #####
+
+:Meeting rdf:type owl:Class ; 
+         rdfs:label "Meeting"@en ; 
+         rdfs:subClassOf :UnitEvent ; 
+         rdfs:comment "An event sponsored by an organization where multiple people come together to conduct business."@en . 
+
+:ConferenceMeeting rdf:type owl:Class ; 
+                   rdfs:label "Conference (meeting)"@en ; 
+                   rdfs:subClassOf :Meeting ; 
+                   rdfs:comment "A periodic meeting of members and leaders in a region (such as a Ward, Stake or District) held for purposes of training by Church leaders."@en . 
+
+:GeneralConference rdf:type owl:Class ; 
+                   rdfs:label "General Conference"@en ; 
+                   rdfs:subClassOf :ConferenceMeeting ; 
+                   rdfs:comment "A meeting of the entire Church held periodically (originally quarterly, now semiannually)."@en . 
+
+:SacramentMeeting rdf:type owl:Class ; 
+                  rdfs:label "Sacrament Meeting"@en ; 
+                  rdfs:subClassOf :Meeting , 
+                                  umbel:ChurchService ; 
+                  rdfs:comment "A weekly worship service at which the ordinance of the Sacrament is administered."@en . 
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ChurchUnit
+                :Event
+                :LatterDaySaint
+                :MormonPlace
+                :Position
+              )
+] .

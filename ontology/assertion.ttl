@@ -1,0 +1,114 @@
+# Ontology of Assertions'
+# Use this ontology to describe metadata about assertions; every datum on the Internet is probably an assertion.
+# based on DC, but distinguishing assertions/representations as targets rather than the real-world entities
+# the goal is to make something that is much simpler than PROV, SWP, or Nanopub
+
+@base <http://carto.byu.edu/ontologies/assertion.ttl#> .
+@prefix : <http://carto.byu.edu/ontologies/assertion.ttl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Assertion a rdfs:Class ;
+		   rdfs:comment "Anything and everything in the digital world is an assertion (yes, many are also interpreted to be the real-world thing); this is intended to include RDF1.1 named graphs (i.e., bundles of RDF statements)" .
+owl:Thing rdfs:subClassOf :Assertion . # any declared thing in an OWL ontology is an assertion
+rdfs:Resource rdfs:subClassOf :Assertion . # any resource in RDF is an assertion, including RDF statements themselves and named graphs 
+
+:partOf a rdfs:Class ;
+        rdfs:domain :Assertion ;
+        rdfs:range :Assertion ;
+        rdfs:label "is part of"@en ;
+        rdfs:comment "States that an assertion is one component of a complex assertion (aka scenario). For example, a database tuple could be modeled as a complex assertion, composed of assertions for each property."@en .
+
+
+:claimant a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+            rdfs:domain :Assertion ;
+            rdfs:range dc:Agent ;
+#            rdfs:subPropertyOf dc:creator ; # is this helpful? is it correct?
+            rdfs:label "was asserted by"@en;
+            rdfs:comment "Who created this assertion (NOT who created the real-world thing)?"@en .
+ 
+:creationTime a owl:DatatypeProperty ;
+            rdfs:domain :Assertion ;
+            rdfs:range xsd:DateTime ;
+#            rdfs:subPropertyOf dc:created ; # is this helpful? is it correct?
+            rdfs:label "was asserted at time"@en;
+            rdfs:comment "When was this assertion created (NOT who created the real-world thing)?"@en .
+
+:explanation a owl:owl:DatatypeProperty ;
+                 rdfs:domain :Assertion ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "was asserted because"@en;
+                 rdfs:comment "Why was this assertion made? This triple is for explanation, justification, or other comments"@en .
+				
+:confidence a owl:DatatypeProperty ;
+				 rdfs:domain :Assertion ;
+                 rdfs:range xsd:Literal ;  # need to figure out a way to specify ways of measuring confidence, rather than me specifying one. Or should I just say it is [0,1], a probability?
+				 rdfs:label "was asserted with confidence level"@en;
+				 rdfs:comment "How confident is the claimant in the validity of this assertion? This is the quality of the assertion in the opinion of the claimant herself."@en .
+				 
+:quality a owl:DatatypeProperty ;
+				 rdfs:domain :Assertion ;
+                 rdfs:range xsd:Literal ;  # need to figure out a way to specify ways of measuring confidence, rather than me specifying one
+				 rdfs:label "has quality level"@en;
+				 rdfs:comment "How valid is the assertion, based on some form of independent review?"@en .
+
+:source a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+		rdfs:domain :Assertion ;
+		rdfs:range :Citation ;
+#       rdfs:subPropertyOf dc:source ; # is this helpful? is it correct?
+		rdfs:label "has source"@en ;
+		rdfs:comment "Cites evidence that supports making this assertion"@en .
+
+
+:Artifact a rdfs:Class ;
+          rdfs:rdfs:subClassOf :Assertion ;
+		  rdfs:comment "Any artifact that can be used to support an assertion, like a primary historical record or the results of a scientific experiment"@en .
+dc:BibliographicResource rdfs:subClassOf :Artifact . # one kind of evidence
+		  
+:Citation a rdfs:Class ;
+          rdfs:subClassOf :Assertion ; # a citation is itself an assertion that could be disputed
+		  rdfs:comment "A reference to a piece of evidence, used to support an assertion"@en .
+
+:cites a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+          rdfs:domain :Citation ;
+          rdfs:range :Artifact ;
+          rdfs:label "cites"@en;
+          rdfs:comment "What evidence is this citation citing?"@en .
+
+:citesPart a owl:DatatypeProperty ;
+           rdfs:domain :Citation ;
+           rdfs:range xsd:string ;
+           rdfs:label "cites part"@en;
+           rdfs:comment "Cites a particular part of the evidence that is being used"@en .
+
+:Feedback a rdfs:Class ;
+          rdfs:subClassOf :Assertion ;
+          rdfs:comment "An article of third-party feedback (rating, comment, etc.) about an assertion"@en .
+
+:feedbackAbout a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+          rdfs:domain :Feedback ;
+          rdfs:range :Assertion ;
+          rdfs:label "gives feedback on"@en;
+          rdfs:comment "the Assertion to which an article of feedback is reacting"@en .
+
+:rating a owl:DatatypeProperty ;
+        rdfs:domain :Feedback ;
+        rdfs:range xsd:float ;
+        rdfs:label "gives a rating of"@en;
+        rdfs:comment "a numeric judgement of the quality of the subject assertion, between 0 and maxRating"@en.
+        
+:maxRating a owl:DatatypeProperty ;
+           rdfs:domain :Feedback ;
+           rdfs:range xsd:float ;
+           rdfs:label "has maximum rating"@en;
+           rdfs:comment "provides context to rating, a maximum value"@en .
+
+:comment a owl:owl:DatatypeProperty ;
+         rdfs:domain :Feedback ;
+         rdfs:range xsd:string ;
+         rdfs:label "includes comment"@en ;
+         rdfs:comment "a textual judgment of the quality of the subject assertion"@en .
+         
