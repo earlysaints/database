@@ -76,15 +76,15 @@ I explored other options but found them both more verbose and less clear.
 
 I'll use the payload field approach in my examples below.
 
-*Brandon: This situation will come up quite often when we have a value with qualifiers, so we need to make sure we have a good generic solution; this requirement to associate a single content with a key is an inherent characteristic of all key-value/triple formats, including JSON and RDF, right? Your payload approach is almost identical to the most common way of handling this in RDF with a blank node. I don't like the fact that I have to take two hops to get to the value (which I have to do either way). The approach I've been working on, based on the quad/named graph idea in RDF (but not following it exactly), is to give every statement an identifier, so the qualifiers are pointing to the original statement by reference, not by nesting. For example, in pseudocode:*
-
-```
-25: @I1@ NAME "Stephen Joseph /Abbott/"
-26: 25 GIVN "Stephen Joseph"
-27: 25 SURN "Abbott"
-```
-
-*I have found it to be a clean way of handling a lot of complex situations. However, doing this in JSON-LD would be very unwieldy (every statement is an independent object), and would break the nested object model that makes JSON-LD nice to use.*
+> (Brandon): This situation will come up quite often when we have a value with qualifiers, so we need to make sure we have a good generic solution; this requirement to associate a single content with a key is an inherent characteristic of all key-value/triple formats, including JSON and RDF, right? Your payload approach is almost identical to the most common way of handling this in RDF with a blank node. I don't like the fact that I have to take two hops to get to the value (which I have to do either way). The approach I've been working on, based on the quad/named graph idea in RDF (but not following it exactly), is to give every statement an identifier, so the qualifiers are pointing to the original statement by reference, not by nesting. For example, in pseudocode:*
+> 
+> ```
+> 25: @I1@ NAME "Stephen Joseph /Abbott/"
+> 26: 25 GIVN "Stephen Joseph"
+> 27: 25 SURN "Abbott"
+> ```
+> 
+> I have found it to be a clean way of handling a lot of complex situations. However, doing this in JSON-LD would be very unwieldy (every statement is an independent object), and would break the nested object model that makes JSON-LD nice to use.*
 
 > (Luther): I agree on all points, Brandon:
 > this case will arise repeatedly so we'll need a standard solution,
@@ -98,6 +98,8 @@ There is no obvious clean and elegant work-around.
 > In statically-typed languages with tagged union (as opposed to polymorphism-based) JSON libraries
 > it is straightforward to have the typed-value access syntax overloaded for `$text`, `$link`, `@value`, full-object, and raw-value fields.
 > In languages with return-type overloading (Haskell and Perl) we could do even better…
+
+> (Brandon) This returning of value and/or qualifiers is actually an issue with my quads approach; because the GIVN connection is a back reference, the complete NAME object doesn't exist as such in the database. It has to be built by gathering all the statements that are about an item (and all the statements that are about those statements, and so on up the tree). This is not terribly difficult (a little more so in SQL of course), but it is an additional step.
 
 ## `CONT` and `CONC` tags
 
