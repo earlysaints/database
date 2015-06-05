@@ -4,8 +4,8 @@
     "@context":
     {
         //ENTITY TYPES
-        "INDI":"http://schema.org/Person", // = http://xmlns.com/foaf/0.1/Person
-        "FAM":"", // family as an independent entity, a kind of organization
+        "INDI":"http://historical-data.org/Person", // = http://schema.org/Person and http://xmlns.com/foaf/0.1/Person
+        "FAM":"http://historical-data.org/Family", // family as an independent entity, a kind of organization
 
         //PROPERTIES OF ENTITIES
         "_UID":"",
@@ -13,32 +13,32 @@
         "GIVN":"http://schema.org/givenName", // or http://xmlns.com/foaf/0.1/givenName
         "SURN":"http://schema.org/familyName", // or http://xmlns.com/foaf/0.1/familyName
         "SEX":"http://schema.org/gender", // or http://xmlns.com/foaf/0.1/gender
-        
+
         //EVENTS
-        //Need to find these events as properties of persons, not as independent Event entities (e.g., BIO). schema.org has separate properties for birth date and birth place
-        "BIRT":"", // the birth of a person
-        "DEAT":"", // the death of a person
-        "BURI":"", // the burial of a person
-        "EVEN":"http://schema.org/event", // I don't think this is a good match; EVEN is a personal, not independent, event
+        //http://historical-data.org/Person utilizes http://historical-data.org/Event for these properties
+        "BIRT":"http://historical-data.org/Event", // the birth of a person
+        "DEAT":"http://historical-data.org/Event", // the death of a person
+        "BURI":"http://historical-data.org/Event", // the burial of a person
+        "EVEN":"http://historical-data.org/Event",
         "CENS":"", // someone appearing in a census--I've never agreed with this being a kind of event
         "RESI":"http://schema.org/Residence", // NO: actually, this is a type of place, not a property of a person
         "MARR":"http://schema.org/MarryAction", // I'm not sure this matches in structure?
 
         //RELATIONSHIPS
-        "FAMS":"", // a reference to a family of which this person is a spouse 
-        "FAMC":"", // a reference to a family of which this person is a child 
+        "FAMS":"", // a reference to a family of which this person is a spouse
+        "FAMC":"", // a reference to a family of which this person is a child
         "HUSB":"http://schema.org/spouse", // ??? Is this enough?
         "WIFE":"http://schema.org/spouse", // ???
         "CHIL":"http://schema.org/children", // not sure if this is a good match
 
         //SOURCES & METADATA
-        "SOUR":"http://schema.org/citation", // ??? http://schema.org/source has been co-opted by the medical people
-        "REPO":"", // the repository (library, website) in which the source document exists
+        "SOUR":"http://historical-data.org/HistoricalRecord", //
+        "REPO":"", // the repository (library, website) in which the source document exists - http://historical-data.org/HistoricalRecord lists this as historicalCollection
         "ABBR":"", // an abbreviate citation
         "CHAN":"http://schema.org/modifiedTime",
         "NOTE":"http://schema.org/comment",
         "PAGE":"", // identifies a fragment of the source document (e.g., a page number)
-        "QUAY":"", //Quality of the fact?
+        "QUAY":"http://schema.org/AggregateRating", // Quality of the fact?
         "TITL":"http://schema.org/name", // http://schema.org/title has been co-opted by job postings
 
         //SPACE & TIME QUALIFIERS
