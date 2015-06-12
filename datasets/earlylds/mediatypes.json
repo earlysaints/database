@@ -1,0 +1,79 @@
+[
+	{
+		'mediatypeID' : "website",
+		'display' : "External Web Site",
+		'path' : "WebSites",
+		'liketype' : "histories",
+		'icon' : "tng_doc.gif",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : 1
+	},
+	{
+		'mediatypeID' : "photos",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -6
+	},
+	{
+		'mediatypeID' : "documents",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -5
+	},
+	{
+		'mediatypeID' : "headstones",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -4
+	},
+	{
+		'mediatypeID' : "histories",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -3
+	},
+	{
+		'mediatypeID' : "recordings",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -2
+	},
+	{
+		'mediatypeID' : "videos",
+		'display' : "",
+		'path' : "",
+		'liketype' : "",
+		'icon' : "",
+		'thumb' : "",
+		'exportas' : "",
+		'disabled' : 0,
+		'ordernum' : -1
+	}
+]

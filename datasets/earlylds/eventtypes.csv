@@ -1,0 +1,37 @@
+eventtypeID,tag,description,display,keep,collapse,ordernum,type
+1,_UID,,_UID,0,0,0,I
+2,EVEN,"4-Death/Burial html","4-Death/Burial html",0,0,0,I
+3,RESI,,Residence,1,0,0,I
+4,AFN,,AFN,0,0,0,I
+5,REFN,,"Reference Number",0,0,0,I
+6,EVEN,"5-Locations html","5-Locations html",0,0,0,I
+7,CENS,,Census,1,0,0,I
+8,DSCR,,"Physical Description",1,0,0,I
+9,EVEN,Mission,Mission,1,0,0,I
+10,EVEN,"1-Ind html","1-Ind html",0,0,0,I
+11,EMIG,,Emigration,1,0,0,I
+12,DEAT,,Death,0,0,0,I
+13,BURI,,Burial,0,0,0,I
+14,BIRT,,Birth,0,0,0,I
+15,_UID,,_UID,0,0,0,F
+16,MARR,,Married,0,0,0,F
+17,_ITALIC,,_ITALIC,0,0,0,S
+18,_PAREN,,_PAREN,0,0,0,S
+19,PHON,,Phone,1,0,0,R
+20,EVEN,"2-Birth/Chr html","2-Birth/Chr html",0,0,0,I
+22,EVEN,Historical,Historical,1,0,0,I
+23,EVEN,"Html Locations","Internet Locations",1,0,0,I
+24,EVEN,"HTML Death/Burial","Internet Death/Burial",1,0,0,I
+25,EVEN,"Html Individual","Internet Individual",1,0,0,I
+26,ORDN,,Ordained,0,0,0,I
+27,EVEN,"Mormon Battalion","Mormon Battalion",1,0,0,I
+28,OCCU,,Occupation,1,0,0,I
+29,RELI,,Religion,0,0,0,I
+30,EVEN,MARR,MARR,0,0,0,I
+31,EVEN,EDUC,EDUC,0,0,0,I
+32,EVEN,TrailCom,"Trail Company",1,0,0,I
+33,EVEN,"Patriarchal Blessing","Patriarchal Blessing",1,0,0,I
+34,EVEN,Calling,Calling,1,0,0,I
+36,BLES,,BLES,0,0,0,I
+37,ALIA,,"Also Known As",0,0,0,I
+38,ADOP,,Adopted,0,0,0,I

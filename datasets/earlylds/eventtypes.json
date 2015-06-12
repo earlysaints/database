@@ -1,0 +1,362 @@
+[
+	{
+		'eventtypeID' : 1,
+		'tag' : "_UID",
+		'description' : "",
+		'display' : "_UID",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 2,
+		'tag' : "EVEN",
+		'description' : "4-Death/Burial html",
+		'display' : "4-Death/Burial html",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 3,
+		'tag' : "RESI",
+		'description' : "",
+		'display' : "Residence",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 4,
+		'tag' : "AFN",
+		'description' : "",
+		'display' : "AFN",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 5,
+		'tag' : "REFN",
+		'description' : "",
+		'display' : "Reference Number",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 6,
+		'tag' : "EVEN",
+		'description' : "5-Locations html",
+		'display' : "5-Locations html",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 7,
+		'tag' : "CENS",
+		'description' : "",
+		'display' : "Census",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 8,
+		'tag' : "DSCR",
+		'description' : "",
+		'display' : "Physical Description",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 9,
+		'tag' : "EVEN",
+		'description' : "Mission",
+		'display' : "Mission",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 10,
+		'tag' : "EVEN",
+		'description' : "1-Ind html",
+		'display' : "1-Ind html",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 11,
+		'tag' : "EMIG",
+		'description' : "",
+		'display' : "Emigration",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 12,
+		'tag' : "DEAT",
+		'description' : "",
+		'display' : "Death",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 13,
+		'tag' : "BURI",
+		'description' : "",
+		'display' : "Burial",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 14,
+		'tag' : "BIRT",
+		'description' : "",
+		'display' : "Birth",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 15,
+		'tag' : "_UID",
+		'description' : "",
+		'display' : "_UID",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "F"
+	},
+	{
+		'eventtypeID' : 16,
+		'tag' : "MARR",
+		'description' : "",
+		'display' : "Married",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "F"
+	},
+	{
+		'eventtypeID' : 17,
+		'tag' : "_ITALIC",
+		'description' : "",
+		'display' : "_ITALIC",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "S"
+	},
+	{
+		'eventtypeID' : 18,
+		'tag' : "_PAREN",
+		'description' : "",
+		'display' : "_PAREN",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "S"
+	},
+	{
+		'eventtypeID' : 19,
+		'tag' : "PHON",
+		'description' : "",
+		'display' : "Phone",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "R"
+	},
+	{
+		'eventtypeID' : 20,
+		'tag' : "EVEN",
+		'description' : "2-Birth/Chr html",
+		'display' : "2-Birth/Chr html",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 22,
+		'tag' : "EVEN",
+		'description' : "Historical",
+		'display' : "Historical",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 23,
+		'tag' : "EVEN",
+		'description' : "Html Locations",
+		'display' : "Internet Locations",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 24,
+		'tag' : "EVEN",
+		'description' : "HTML Death/Burial",
+		'display' : "Internet Death/Burial",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 25,
+		'tag' : "EVEN",
+		'description' : "Html Individual",
+		'display' : "Internet Individual",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 26,
+		'tag' : "ORDN",
+		'description' : "",
+		'display' : "Ordained",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 27,
+		'tag' : "EVEN",
+		'description' : "Mormon Battalion",
+		'display' : "Mormon Battalion",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 28,
+		'tag' : "OCCU",
+		'description' : "",
+		'display' : "Occupation",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 29,
+		'tag' : "RELI",
+		'description' : "",
+		'display' : "Religion",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 30,
+		'tag' : "EVEN",
+		'description' : "MARR",
+		'display' : "MARR",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 31,
+		'tag' : "EVEN",
+		'description' : "EDUC",
+		'display' : "EDUC",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 32,
+		'tag' : "EVEN",
+		'description' : "TrailCom",
+		'display' : "Trail Company",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 33,
+		'tag' : "EVEN",
+		'description' : "Patriarchal Blessing",
+		'display' : "Patriarchal Blessing",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 34,
+		'tag' : "EVEN",
+		'description' : "Calling",
+		'display' : "Calling",
+		'keep' : 1,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 36,
+		'tag' : "BLES",
+		'description' : "",
+		'display' : "BLES",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 37,
+		'tag' : "ALIA",
+		'description' : "",
+		'display' : "Also Known As",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	},
+	{
+		'eventtypeID' : 38,
+		'tag' : "ADOP",
+		'description' : "",
+		'display' : "Adopted",
+		'keep' : 0,
+		'collapse' : 0,
+		'ordernum' : 0,
+		'type' : "I"
+	}
+]

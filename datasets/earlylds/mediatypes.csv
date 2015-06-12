@@ -1,0 +1,8 @@
+mediatypeID,display,path,liketype,icon,thumb,exportas,disabled,ordernum
+website,"External Web Site",WebSites,histories,tng_doc.gif,,,0,1
+photos,,,,,,,0,-6
+documents,,,,,,,0,-5
+headstones,,,,,,,0,-4
+histories,,,,,,,0,-3
+recordings,,,,,,,0,-2
+videos,,,,,,,0,-1

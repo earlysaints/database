@@ -1,0 +1,497 @@
+[
+	{
+		'ID' : 401,
+		'repoID' : "REPO35",
+		'reponame' : "http://www.geocities.com/cann_america/05mass.htm",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 400,
+		'repoID' : "REPO34",
+		'reponame' : "http://contentdm.lib.byu.edu/cdm4/document.php?CISOROOT=/byustudies&CISOPTR=25588",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 399,
+		'repoID' : "REPO33",
+		'reponame' : "http://www.cyberdriveillinois.com/GenealogyMWeb/IDPHDeathSearchServlet",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 398,
+		'repoID' : "REPO32",
+		'reponame' : "Daughters of the Utah Pioneers Museum and Gift Store",
+		'gedcom' : "Earlylds",
+		'addressID' : 142,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 397,
+		'repoID' : "REPO31",
+		'reponame' : "http://www.rootsweb.com/~utsaltla/obit_DeseretNews_1850s.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 396,
+		'repoID' : "REPO30",
+		'reponame' : "http://lib.byu.edu",
+		'gedcom' : "Earlylds",
+		'addressID' : 141,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 395,
+		'repoID' : "REPO29",
+		'reponame' : "J. Willard Marriott Library, U. of U.",
+		'gedcom' : "Earlylds",
+		'addressID' : 140,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 394,
+		'repoID' : "REPO28",
+		'reponame' : "http://members.aol.com/RDown3657/page1.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 393,
+		'repoID' : "REPO27",
+		'reponame' : "Sarah Granger Kimball Home, Nauvoo, Illinois",
+		'gedcom' : "Earlylds",
+		'addressID' : 139,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 392,
+		'repoID' : "REPO26",
+		'reponame' : "http://www.southernutah.com",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 391,
+		'repoID' : "REPO25",
+		'reponame' : "http://www.bsmarkham.com/julie/tellebook.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 390,
+		'repoID' : "REPO24",
+		'reponame' : "http://www.rootsweb.com/%7Eutsaltla/obit_DeseretNewsSW.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 389,
+		'repoID' : "REPO23",
+		'reponame' : "http://www.shipbrooklyn.org/passenger.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 388,
+		'repoID' : "REPO22",
+		'reponame' : "Utah State Archives",
+		'gedcom' : "Earlylds",
+		'addressID' : 138,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 387,
+		'repoID' : "REPO21",
+		'reponame' : "LDS Church Archives",
+		'gedcom' : "Earlylds",
+		'addressID' : 137,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 386,
+		'repoID' : "REPO20",
+		'reponame' : "http://www.accessgenealogy.com/cemetery/wisconsin/richland_county.htm",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 385,
+		'repoID' : "REPO19",
+		'reponame' : "http://www.farwesthistory.com",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 384,
+		'repoID' : "REPO18",
+		'reponame' : "New England Historic Genealogical Society",
+		'gedcom' : "Earlylds",
+		'addressID' : 136,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 383,
+		'repoID' : "REPO17",
+		'reponame' : "http://abish.byui.edu/specialCollections/westernStates/search.cfm",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2014-10-20 13:45:46",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 382,
+		'repoID' : "REPO16",
+		'reponame' : "http://www.mormonbattalion.com/history/roster.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 381,
+		'repoID' : "REPO15",
+		'reponame' : "http://www.lds.org",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 380,
+		'repoID' : "REPO14",
+		'reponame' : "Mormon Trails Visitor Center",
+		'gedcom' : "Earlylds",
+		'addressID' : 135,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 379,
+		'repoID' : "REPO13",
+		'reponame' : "Godfrey Memorial Library",
+		'gedcom' : "Earlylds",
+		'addressID' : 134,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 378,
+		'repoID' : "REPO12",
+		'reponame' : "http://www.Utah.gov",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 377,
+		'repoID' : "REPO11",
+		'reponame' : "http://server.aeal14.k12.ia.us/SP/bbrown/Bev.html#monument",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 376,
+		'repoID' : "REPO10",
+		'reponame' : "http://iagenweb.org/pottawattamie/hist-mormonsettlements.htm",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 375,
+		'repoID' : "REPO9",
+		'reponame' : "http://worldconnect.rootsweb.com/",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 374,
+		'repoID' : "REPO8",
+		'reponame' : "http://www.ancestry.com",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 373,
+		'repoID' : "REPO7",
+		'reponame' : "Nauvoo Historical Records 1839-1846",
+		'gedcom' : "Earlylds",
+		'addressID' : 133,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 372,
+		'repoID' : "REPO6",
+		'reponame' : "Nauvoo Family History Center",
+		'gedcom' : "Earlylds",
+		'addressID' : 132,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 371,
+		'repoID' : "REPO5",
+		'reponame' : "http://www.pioneerresearchgroup.org",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 370,
+		'repoID' : "REPO4",
+		'reponame' : "Family History Library",
+		'gedcom' : "Earlylds",
+		'addressID' : 131,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 369,
+		'repoID' : "REPO3",
+		'reponame' : "Family History Library",
+		'gedcom' : "Earlylds",
+		'addressID' : 177,
+		'changedate' : "2015-03-20 17:23:51",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 368,
+		'repoID' : "REPO2",
+		'reponame' : "Harold B. Lee Library, BYU",
+		'gedcom' : "Earlylds",
+		'addressID' : 129,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 367,
+		'repoID' : "REPO1",
+		'reponame' : "http://www.familysearch.org/",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 402,
+		'repoID' : "REPO36",
+		'reponame' : "Thayer Memorial Library",
+		'gedcom' : "Earlylds",
+		'addressID' : 143,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 403,
+		'repoID' : "REPO37",
+		'reponame' : "Woburn Public Library",
+		'gedcom' : "Earlylds",
+		'addressID' : 144,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 404,
+		'repoID' : "REPO38",
+		'reponame' : "http:/www.Genealogy.com",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 405,
+		'repoID' : "REPO39",
+		'reponame' : "http://www.rootsweb.com",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 406,
+		'repoID' : "REPO40",
+		'reponame' : "U.S. Department of Veterans Affairs",
+		'gedcom' : "Earlylds",
+		'addressID' : 145,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 407,
+		'repoID' : "REPO41",
+		'reponame' : "http://vitals.rootsweb.com/ca/death/search.cgi",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 408,
+		'repoID' : "REPO42",
+		'reponame' : "http://www.georgetownhistoricalsociety.com/GtGen/johnspofford.html.",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 409,
+		'repoID' : "REPO43",
+		'reponame' : "Massachusetts State Archives",
+		'gedcom' : "Earlylds",
+		'addressID' : 146,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 410,
+		'repoID' : "REPO44",
+		'reponame' : "http://www.rootsweb.com/~moatchis/Kathleen/kathleen.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 411,
+		'repoID' : "REPO45",
+		'reponame' : "http://www.infouga.org",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 412,
+		'repoID' : "REPO46",
+		'reponame' : "http://patriot.lib.byu.edu/cdm4/document.php?CISOEOOR=FH9&CISOPTR=77071",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 413,
+		'repoID' : "REPO47",
+		'reponame' : "http://www.cyberdriveillinois.com/departments/archives/databases/marriage.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2014-10-20 13:41:28",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 414,
+		'repoID' : "REPO48",
+		'reponame' : "http://iagenweb.org/madison/",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2014-10-20 13:49:23",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 415,
+		'repoID' : "REPO49",
+		'reponame' : "http://mormonhistoricsites.org/wp-content/uploads/2013/05/MHS2.1Ward.pdf",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2014-10-23 15:36:12",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 416,
+		'repoID' : "REPO50",
+		'reponame' : "http://glorecords.blm.gov/patent search/",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2007-02-10 10:34:36",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 417,
+		'repoID' : "REPO51",
+		'reponame' : "Pioneer Research Library at the Trail Center at Historic Winter Quarters",
+		'gedcom' : "Earlylds",
+		'addressID' : 148,
+		'changedate' : "2009-05-24 00:35:35",
+		'changedby' : "foxgen"
+	},
+	{
+		'ID' : 418,
+		'repoID' : "REPO52",
+		'reponame' : "http://www.isdar.org/chapters/nancymckayharsh/history.html",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2013-06-21 12:29:32",
+		'changedby' : "FoxGen"
+	},
+	{
+		'ID' : 462,
+		'repoID' : "REPO160003",
+		'reponame' : "Pioneer Resource Library at Mormon Trail Center at Historic Winter Quarters",
+		'gedcom' : "Earlylds",
+		'addressID' : 180,
+		'changedate' : "2015-04-22 15:22:46",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 461,
+		'repoID' : "REPO160002",
+		'reponame' : "familysearch.org",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2015-04-22 15:22:46",
+		'changedby' : "Larry"
+	},
+	{
+		'ID' : 460,
+		'repoID' : "REPO160001",
+		'reponame' : "http://www.lds.org",
+		'gedcom' : "Earlylds",
+		'addressID' : 0,
+		'changedate' : "2015-04-22 15:22:46",
+		'changedby' : "Larry"
+	}
+]
