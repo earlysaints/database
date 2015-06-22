@@ -93,6 +93,14 @@ for deed in inxml.getElementsByTagName('deed'):
     if (len(b+p+e+d+n)>0):
         srcxml=srcxml+'<NC book="'+b+'" page="'+p+'" entry="'+e+'" date="'+d+'" daten="'+n+'" />'
         srcarr.append('Nauvoo Municipal Court book '+b+' page '+p+' #'+e+' ('+d+')')
+    b=att(deed,'BMBOOK')
+    p=att(deed,'BMPAGE')
+    e=att(deed,'BMENTRY')
+    d=att(deed,'BMDATE')
+    n=att(deed,'BMDATE_NUM')
+    if (len(b+p+e+d+n)>0):
+        srcxml=srcxml+'<BM book="'+b+'" page="'+p+'" entry="'+e+'" date="'+d+'" daten="'+n+'" />'
+        srcarr.append('Hancock County Bonds and Mortgages book '+b+' page '+p+' #'+e+' ('+d+')')
 
     srctxt="; ".join(srcarr)              
     srcxml = srcxml+'</SOURCES>'
