@@ -5,7 +5,7 @@ def att(obj,key):
     a=""
     b=obj.getElementsByTagName(key)
     if (b):
-        a=b[0].childNodes[0].toxml()
+        a=b[0].childNodes[0].toxml().rstrip()
     return a
 
 qid=50000 # after persons and person-deed links
@@ -17,7 +17,7 @@ def sid():
 
 inxml = minidom.parse(r'deeds.xml')
 outcsv = codecs.open(r'deeds_quads.csv','w','utf-8')
-outcsv.write('id,assert_type,subject,predicate,object\r\n')
+outcsv.write('id,assert_type,subject,predicate,object\n')
 
 preds = {'GRANTOR':'grantor name', 'GRANTOR_RES':'grantor residence',
          'GRANTEE':'grantee name', 'GRANTEE_RES':'grantee residence',
@@ -53,8 +53,8 @@ for deed in inxml.getElementsByTagName('deed'):
         if (ln.getElementsByTagName('twn')):
             twn = ln.getElementsByTagName('twn')[0].childNodes[0].data.rstrip()
             desc = desc+"town:"+twn+" "
-            outcsv.write(sid()+',property,'+pid+',location,'+twn+'\n')
-            outcsv.write(sid()+',property,'+str(qid-1)+',role,town\n')
+            outcsv.write(sid()+',property,'+pid+',location,|'+twn+'|\n')
+            outcsv.write(sid()+',property,'+str(qid-1)+',role,place name\n')
         if (ln.getElementsByTagName('rng')):
             rng = ln.getElementsByTagName('rng')[0].childNodes[0].data.rstrip()
             desc = desc+"range:"+rng+" "
@@ -70,19 +70,19 @@ for deed in inxml.getElementsByTagName('deed'):
         if (ln.getElementsByTagName('sec')):
             sec = ln.getElementsByTagName('sec')[0].childNodes[0].data.rstrip()
             desc = desc+"section:"+sec+" "
-            outcsv.write(sid()+',property,'+pid+',PLSS section,'+sec+'\n')
+            outcsv.write(sid()+',property,'+pid+',PLSS section,|'+sec+'|\n')
         if (ln.getElementsByTagName('blk')):
             blk = ln.getElementsByTagName('blk')[0].childNodes[0].data.rstrip()
             desc = desc+"block:"+blk+" "
-            outcsv.write(sid()+',property,'+pid+',subdivision block,'+blk+'\n')
+            outcsv.write(sid()+',property,'+pid+',subdivision block,|'+blk+'|\n')
         if (ln.getElementsByTagName('lot')):
             lot = ln.getElementsByTagName('lot')[0].childNodes[0].data.rstrip()
             desc = desc+"lot:"+lot+" "
-            outcsv.write(sid()+',property,'+pid+',subdivision lot,'+lot+'\n')
+            outcsv.write(sid()+',property,'+pid+',subdivision lot,|'+lot+'|\n')
         if (ln.getElementsByTagName('pt')):
             pt = ln.getElementsByTagName('pt')[0].childNodes[0].data.rstrip()
             desc = desc+"part:"+pt+" "
-            outcsv.write(sid()+',property,'+pid+',aliquot part,'+pt+'\n')
+            outcsv.write(sid()+',property,'+pid+',aliquot part,|'+pt+'|\n')
         if (ln.getElementsByTagName('desc')):
             dsc = ln.getElementsByTagName('desc')[0].childNodes[0].data.rstrip()
             desc = desc+"desc:"+dsc+" "
@@ -90,7 +90,7 @@ for deed in inxml.getElementsByTagName('deed'):
         if (ln.getElementsByTagName('area')):
             area = ln.getElementsByTagName('area')[0].childNodes[0].data.rstrip()
             desc = desc+"("+area+" acres)"
-            outcsv.write(sid()+',property,'+pid+',area,'+area+'\n')
+            outcsv.write(sid()+',property,'+pid+',area,|'+area+'|\n')
             outcsv.write(sid()+',qualifier,'+str(qid-1)+',unit,acre\n')
         outcsv.write(sid()+',entity,'+pid+',common name,|'+desc+'|\n')
         val=val+desc+'<br/>'
@@ -101,7 +101,7 @@ for deed in inxml.getElementsByTagName('deed'):
     #Parse Sources
     s=deed.getElementsByTagName('SOURCE')
     if (s):
-        outcsv.write(sid()+',property,D'+did+',source,|'+s[0].childNodes[0].data+'|\n')
+        outcsv.write(sid()+',property,D'+did+',source,|'+s[0].childNodes[0].data.rstrip()+'|\n')
     b=att(deed,'HCBOOK')
     p=att(deed,'HCPAGE')
     e=att(deed,'HCENTRY')
